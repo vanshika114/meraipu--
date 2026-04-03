@@ -19,10 +19,7 @@ export function Breadcrumb({ items }: BreadcrumbProps) {
           <li key={i} className="flex items-center gap-1">
             {i > 0 && <ChevronRight className="h-4 w-4 shrink-0" />}
             {item.href ? (
-              <Link
-                href={item.href}
-                className="hover:text-primary transition-colors"
-              >
+              <Link href={item.href} className="hover:text-primary transition-colors">
                 {item.label}
               </Link>
             ) : (
@@ -35,25 +32,25 @@ export function Breadcrumb({ items }: BreadcrumbProps) {
   );
 }
 
-export function buildBreadcrumbForBranch(year: string, branch: string): BreadcrumbItem[] {
+export function buildBreadcrumbForBranch(sem: string, branch: string): BreadcrumbItem[] {
   const branchName = BRANCHES[branch] ?? branch;
   return [
     { label: "Home", href: "/" },
-    { label: `Year ${year}`, href: `/year/${year}` },
+    { label: `Semester ${sem}`, href: `/semester/${sem}` },
     { label: branchName },
   ];
 }
 
 export function buildBreadcrumbForSubject(
-  year: string,
+  sem: string,
   branch: string,
   subjectTitle: string
 ): BreadcrumbItem[] {
   const branchName = BRANCHES[branch] ?? branch;
   return [
     { label: "Home", href: "/" },
-    { label: `Year ${year}`, href: `/year/${year}` },
-    { label: branchName, href: `/year/${year}/${branch}` },
+    { label: `Semester ${sem}`, href: `/semester/${sem}` },
+    { label: branchName, href: `/semester/${sem}/${branch}` },
     { label: subjectTitle },
   ];
 }
