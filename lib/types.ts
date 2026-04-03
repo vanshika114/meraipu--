@@ -17,7 +17,7 @@ export interface VideoLink {
 export interface SubjectFrontmatter {
   title: string;
   code: string;
-  year: number;
+  semester: number;
   branch: string;
   branchName: string;
   credits: number;
